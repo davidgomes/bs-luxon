@@ -1,6 +1,6 @@
-# Basic Reason Template
+# Luxon Bindings for ReasonML/Bucklescript
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+This repository contains in-progress Reason/Bucklescript bindings for [Luxon](https://github.com/moment/luxon).
 
 # Build
 ```
@@ -12,7 +12,3 @@ npm run build
 ```
 npm run watch
 ```
-
-
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
