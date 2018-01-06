@@ -1,5 +1,6 @@
 {
   "name": "bs-luxon",
+  "description": "Bucklescript bindings for Luxon, written in Reason.",
   "version": "0.1.0",
   "scripts": {
     "build": "bsb -make-world",
@@ -14,12 +15,18 @@
     "reasonml",
     "luxon"
   ],
-  "author": "David Gomes",
+  "author": "David Gomes <davidrafagomes@gmail.com>",
   "license": "MIT",
+  "bugs": "https://github.com/davidgomes/bs-luxon/issues",
+  "homepage": "https://github.com/davidgomes/bs-luxon",
   "peerDependencies": {
     "luxon": "^0.2.11"
   },
-  "devDependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidgomes/bs-luxon"
+},
+"devDependencies": {
     "@glennsl/bs-jest": "^0.3.2",
     "bs-platform": "^2.1.0",
     "luxon": "^0.2.11"
