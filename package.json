@@ -4,6 +4,8 @@
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
+    "example": "node example/demo.bs.js",
+    "test": "jest",
     "clean": "bsb -clean-world"
   },
   "keywords": [
@@ -18,6 +20,7 @@
     "luxon": "^0.2.11"
   },
   "devDependencies": {
+    "@glennsl/bs-jest": "^0.3.2",
     "bs-platform": "^2.1.0",
     "luxon": "^0.2.11"
   }

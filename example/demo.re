@@ -1,6 +1,6 @@
 open Luxon;
 
-Js.log(DateTime.local(2017, 5, 15, 8, 30, 0, 0));
+Js.log(DateTime.local(~year=2017, ~month=5, ~day=15, ~hour=8, ~minute=30));
 
 let dateObj: DateTime.objectDate = {"year": 2017};
 Js.log(DateTime.fromObject(dateObj)##toISODate());

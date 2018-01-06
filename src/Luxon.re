@@ -2,13 +2,14 @@ module DateTime = {
     type t = {.
         /* Methods */
         [@bs.meth] "toISODate": unit => string,
+        [@bs.meth] "toJSDate": unit => Js_date.t,
 
         /* Members */
         "day": int
     };
 
     /* Static Methods */
-    [@bs.module "luxon"] [@bs.scope "DateTime"] external local: (int, int, int, int, int, int, int) => t = "";
+    [@bs.module "luxon"] [@bs.scope "DateTime"] external local: (~year: int=?, ~month: int=?, ~day: int=?, ~hour: int=?, ~minute: int=?, ~second: int=?, ~millisecond: int=?, unit) => t = "";
 
     type objectDate = {.
       "year": int,
