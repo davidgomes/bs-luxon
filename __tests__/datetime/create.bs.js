@@ -4,6 +4,18 @@
 var Jest  = require("@glennsl/bs-jest/src/jest.js");
 var Luxon = require("luxon");
 
+function getDateObject(dt) {
+  return {
+          year: dt.year,
+          month: dt.month,
+          day: dt.day,
+          hour: dt.hour,
+          minute: dt.minute,
+          second: dt.second,
+          millisecond: dt.millisecond
+        };
+}
+
 Jest.test("to work", (function () {
         var now = Luxon.DateTime.local(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
         return Jest.ExpectJs[/* toBe */2](new Date().getDate(), Jest.ExpectJs[/* expect */0](now.toJSDate().getDate()));
@@ -11,13 +23,16 @@ Jest.test("to work", (function () {
 
 Jest.test("DateTime.local(2017) is the beginning of the year", (function () {
         var dt = Luxon.DateTime.local(2017, undefined, undefined, undefined, undefined, undefined, undefined);
-        Jest.ExpectJs[/* toBe */2](2017, Jest.ExpectJs[/* expect */0](dt.year));
-        Jest.ExpectJs[/* toBe */2](1, Jest.ExpectJs[/* expect */0](dt.month));
-        Jest.ExpectJs[/* toBe */2](1, Jest.ExpectJs[/* expect */0](dt.day));
-        Jest.ExpectJs[/* toBe */2](0, Jest.ExpectJs[/* expect */0](dt.hour));
-        Jest.ExpectJs[/* toBe */2](0, Jest.ExpectJs[/* expect */0](dt.minute));
-        Jest.ExpectJs[/* toBe */2](0, Jest.ExpectJs[/* expect */0](dt.second));
-        return Jest.ExpectJs[/* toBe */2](0, Jest.ExpectJs[/* expect */0](dt.millisecond));
+        return Jest.ExpectJs[/* toEqual */12]({
+                    year: 2017,
+                    month: 1,
+                    day: 1,
+                    hour: 0,
+                    minute: 0,
+                    second: 0,
+                    millisecond: 0
+                  }, Jest.ExpectJs[/* expect */0](getDateObject(dt)));
       }));
 
+exports.getDateObject = getDateObject;
 /*  Not a pure module */

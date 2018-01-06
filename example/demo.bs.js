@@ -18,7 +18,13 @@ console.log((function (param, param$1, _) {
       }));
 
 var dateObj = {
-  year: 2017
+  year: 2017,
+  month: 10,
+  day: 2,
+  hour: 3,
+  minute: 1,
+  second: 0,
+  millisecond: 0
 };
 
 console.log(Luxon.DateTime.fromObject(dateObj).toISODate());
