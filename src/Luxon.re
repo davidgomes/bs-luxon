@@ -5,7 +5,13 @@ module DateTime = {
         [@bs.meth] "toJSDate": unit => Js_date.t,
 
         /* Members */
-        "day": int
+        "year": int,
+        "day": int,
+        "month": int,
+        "hour": int,
+        "minute": int,
+        "second": int,
+        "millisecond": int
     };
 
     /* Static Methods */
@@ -14,9 +20,9 @@ module DateTime = {
     type objectDate = {.
       "year": int,
     };
-    
+
     [@bs.module "luxon"] [@bs.scope "DateTime"] external fromObject : (objectDate) => t = "";
-    
+
     /* Static Members */
 
     [@bs.module "luxon"] [@bs.scope "DateTime"] external dateTimeFull : string = "DATETIME_FULL";
