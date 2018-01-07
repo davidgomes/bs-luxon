@@ -4,29 +4,24 @@ This repository contains in-progress Reason/Bucklescript bindings for [Luxon](ht
 
 ## Example
 
-```ocaml
-open Luxon;
+This is an example from [Luxon's GitHub page](https://github.com/moment/luxon) written in Reason using bs-luxon:
 
-Js.log(DateTime.local(~year=2017, ~month=5, ~day=15, ~hour=8, ~minute=30));
-
-let dateObj: DateTime.objectDate = {
-  "year": 2017,
-  "month": 10,
-  "day": 2,
-  "hour": 3,
-  "minute": 1,
-  "second": 0,
-  "millisecond": 0
-};
-
-Js.log(DateTime.fromObject(dateObj)##toISODate());
-
-Js.log(DateTime.fromObject(dateObj)##day);
-
-Js.log(DateTime.dateTimeFull);
+```javascript
+const { DateTime } = require("luxon");
+DateTime.local().setZone('America/New_York').minus({ weeks: 1 }).endOf('day').toISO()
 ```
 
-Look in the `example/` directory for an example of how to use the bindings.
+```ocaml
+DateTime.(
+  local()
+  |> setZone("America/New_York")
+  |> minus(makeDurationArgs(~weeks=1, ()))
+  |> endOf(`day)
+  |> toISO()
+)
+```
+
+Look in the `example/` directory for an example of how to use the bindings. The tests contain a lot more examples.
 
 ## Installation
 

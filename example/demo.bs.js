@@ -3,19 +3,7 @@
 
 var Luxon = require("luxon");
 
-var partial_arg = /* Some */[30];
-
-var partial_arg$1 = /* Some */[8];
-
-var partial_arg$2 = /* Some */[15];
-
-var partial_arg$3 = /* Some */[5];
-
-var partial_arg$4 = /* Some */[2017];
-
-console.log((function (param, param$1, _) {
-        return Luxon.DateTime.local(partial_arg$4 ? partial_arg$4[0] : undefined, partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, param ? param[0] : undefined, param$1 ? param$1[0] : undefined);
-      }));
+console.log(Luxon.DateTime.local(2017, 5, 15, 8, 30, undefined, undefined));
 
 var dateObj = {
   year: 2017,
@@ -32,6 +20,10 @@ console.log(Luxon.DateTime.fromObject(dateObj).toISODate());
 console.log(Luxon.DateTime.fromObject(dateObj).day);
 
 console.log(Luxon.DateTime.DATETIME_FULL);
+
+console.log(Luxon.DateTime.local(undefined, undefined, undefined, undefined, undefined, undefined, undefined).setZone("America/New_York").minus({
+              weeks: 1
+            }).endOf("day").toISO());
 
 exports.dateObj = dateObj;
 /*  Not a pure module */

@@ -1,35 +1,72 @@
 module DateTime = {
-    type t = {.
-        /**** Methods ****/
-        [@bs.meth] "toISODate": unit => string,
-        [@bs.meth] "toJSDate": unit => Js_date.t,
+  type t = {
+    .
+    /**** Members ****/
+    "year": int,
+    "day": int,
+    "month": int,
+    "hour": int,
+    "minute": int,
+    "second": int,
+    "millisecond": int
+  };
 
-        /**** Members ****/
-        "year": int,
-        "day": int,
-        "month": int,
-        "hour": int,
-        "minute": int,
-        "second": int,
-        "millisecond": int
-    };
+  /**** Static Methods ****/
+  [@bs.module "luxon"] [@bs.scope "DateTime"]
+  external local :
+    (
+      ~year: int=?,
+      ~month: int=?,
+      ~day: int=?,
+      ~hour: int=?,
+      ~minute: int=?,
+      ~second: int=?,
+      ~millisecond: int=?,
+      unit
+    ) =>
+    t =
+    "";
 
-    /**** Static Methods ****/
-    [@bs.module "luxon"] [@bs.scope "DateTime"] external local: (~year: int=?, ~month: int=?, ~day: int=?, ~hour: int=?, ~minute: int=?, ~second: int=?, ~millisecond: int=?, unit) => t = "";
+  /*** Methods ****/
+  [@bs.send.pipe : t] external setZone : string => t = "";
+  [@bs.send.pipe : t] external toISODate : unit => string = "";
+  [@bs.send.pipe : t] external toISO : unit => string = "";
+  [@bs.send.pipe : t] external toJSDate : unit => Js_date.t = "";
+  type durationArgs;
+  [@bs.obj]
+  external makeDurationArgs :
+    (
+      ~years: int=?,
+      ~months: int=?,
+      ~weeks: int=?,
+      ~days: int=?,
+      ~hours: int=?,
+      ~minutes: int=?,
+      ~seconds: int=?,
+      ~milliseconds: int=?,
+      unit
+    ) =>
+    durationArgs =
+    "";
+  [@bs.send.pipe : t] external minus : durationArgs => t = "";
+  /* In the original API, these are all optional. But not in bs-luxon. In fact, in bs-luxon you should never use `fromObject` and always use `local` instead. */
+  type objectDate = {
+    .
+    "year": int,
+    "day": int,
+    "month": int,
+    "hour": int,
+    "minute": int,
+    "second": int,
+    "millisecond": int
+  };
+  [@bs.module "luxon"] [@bs.scope "DateTime"] external fromObject : objectDate => t = "";
+  [@bs.send.pipe : t]
+  external endOf :
+    ([@bs.string] [ | `year | `month | `week | `day | `hour | `minute | `second | `millisecond]) =>
+    t =
+    "";
 
-    /* In the original API, these are all optional. But not in bs-luxon. */
-    type objectDate = {.
-        "year": int,
-        "day": int,
-        "month": int,
-        "hour": int,
-        "minute": int,
-        "second": int,
-        "millisecond": int
-    };
-
-    [@bs.module "luxon"] [@bs.scope "DateTime"] external fromObject : (objectDate) => t = "";
-
-    /**** Static Members ****/
-    [@bs.module "luxon"] [@bs.scope "DateTime"] external dateTimeFull : string = "DATETIME_FULL";
+  /**** Static Members ****/
+  [@bs.module "luxon"] [@bs.scope "DateTime"] external dateTimeFull : string = "DATETIME_FULL";
 };

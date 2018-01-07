@@ -13,7 +13,9 @@
     "BuckleScript",
     "reason",
     "reasonml",
-    "luxon"
+    "luxon",
+    "date",
+    "time"
   ],
   "author": "David Gomes <davidrafagomes@gmail.com>",
   "license": "MIT",
