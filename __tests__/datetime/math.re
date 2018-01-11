@@ -4,18 +4,6 @@ open ExpectJs;
 
 open Luxon;
 
-/*
- * .minus()
- */
-/*test('DateTime#minus({ years: 1 }) subtracts a year', () => {
-  const dt = createDateTime().minus({ years: 1 });
-  expect(dt.year).toBe(2009);
-});
-
-test('DateTime#minus maintains invalidity', () => {
-  expect(DateTime.invalid('because').minus({ day: 1 }).isValid).toBe(false);
-});*/
-
 test(
   "DateTime#minus({ years: 1 }) subtracts a year",
   () => {
