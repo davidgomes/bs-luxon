@@ -130,7 +130,17 @@ test(
 test(
   "DateTime.local(2017, 6, 12, 5, 25, 16, 255) is the beginning of the millisecond",
   () => {
-    let dt = DateTime.local(~year=2017, ~month=6, ~day=12, ~hour=5, ~minute=25, ~second=16, ~millisecond=255, ());
+    let dt =
+      DateTime.local(
+        ~year=2017,
+        ~month=6,
+        ~day=12,
+        ~hour=5,
+        ~minute=25,
+        ~second=16,
+        ~millisecond=255,
+        ()
+      );
     expect(getDateObject(dt))
     |> toEqual({
          "year": 2017,

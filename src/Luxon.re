@@ -48,20 +48,9 @@ module DateTime = {
     ) =>
     durationObj =
     "";
-
-  /*[@bs.val]
-  external padLeft : (
-    string,
-    [@bs.unwrap] [
-      | `Str(string)
-      | `Int(int)
-    ])
-    => string = "";
-  
-  padLeft("Hello World", `Int(4));
-  padLeft("Hello World", `Str("Message from BS: "));*/
-
-  [@bs.send.pipe : t] external minus : ([@bs.unwrap] [`DurationObj(durationObj) | `Int(int)]) => t = "";
+  [@bs.send.pipe : t]
+  external minus : ([@bs.unwrap] [ | `DurationObj(durationObj) | `Int(int)]) => t =
+    "";
   /* In the original API, these are all optional. But not in bs-luxon. In fact, in bs-luxon you should never use `fromObject` and always use `local` instead. */
   type objectDate = {
     .
