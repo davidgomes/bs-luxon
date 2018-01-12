@@ -27,3 +27,13 @@ Js.log(
     |> toISO()
   )
 );
+
+Js.log(
+  DateTime.(
+    local()
+    |> setZone("America/New_York")
+    |> minus(`DurationObj(makeDurationObj(~weeks=1, ())))
+    |> startOf(`day)
+    |> toISO()
+  )
+);
