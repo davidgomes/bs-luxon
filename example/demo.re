@@ -2,6 +2,8 @@ open Luxon;
 
 Js.log(DateTime.local(~year=2017, ~month=5, ~day=15, ~hour=8, ~minute=30, ()));
 
+Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.toISODate());
+
 let dateObj: DateTime.objectDate = {
   "year": 2017,
   "month": 10,

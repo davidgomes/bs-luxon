@@ -70,6 +70,9 @@ module DateTime = {
   [@bs.module "luxon"] [@bs.scope "DateTime"]
   external fromObject : objectDate => t =
     "";
+  [@bs.module "luxon"] [@bs.scope "DateTime"]
+  external fromMillis : float => t =
+    "";
   [@bs.send.pipe : t]
   external endOf :
     (
