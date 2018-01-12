@@ -52,6 +52,10 @@ module DateTime = {
   external minus :
     ([@bs.unwrap] [ | `DurationObj(durationObj) | `Int(int)]) => t =
     "";
+  [@bs.send.pipe : t]
+  external plus :
+    ([@bs.unwrap] [ | `DurationObj(durationObj) | `Int(int)]) => t =
+    "";
   /* In the original API, these are all optional. But not in bs-luxon. In fact, in bs-luxon you should never use `fromObject` and always use `local` instead. */
   type objectDate = {
     .
@@ -88,7 +92,7 @@ module DateTime = {
     (
     [@bs.string]
     [
-      | `year
+      | `yearm
       | `month
       | `week
       | `day
