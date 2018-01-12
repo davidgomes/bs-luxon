@@ -32,6 +32,7 @@ module DateTime = {
   [@bs.send.pipe : t] external toISODate : unit => string = "";
   [@bs.send.pipe : t] external toISO : unit => string = "";
   [@bs.send.pipe : t] external toJSDate : unit => Js_date.t = "";
+  [@bs.send.pipe : t] external valueOf : unit => float = "";
   type durationObj;
   [@bs.obj]
   external makeDurationObj :
@@ -95,7 +96,7 @@ module DateTime = {
     (
     [@bs.string]
     [
-      | `yearm
+      | `year
       | `month
       | `week
       | `day

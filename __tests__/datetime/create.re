@@ -21,7 +21,8 @@ test(
   "to work",
   () => {
     let now = DateTime.local();
-    expect(Js_date.getDate(now |> DateTime.toJSDate())) |> toBe(Js_date.getDate(Js_date.make()))
+    expect(Js_date.getDate(now |> DateTime.toJSDate()))
+    |> toBe(Js_date.getDate(Js_date.make()))
   }
 );
 
@@ -96,7 +97,8 @@ test(
 test(
   "DateTime.local(2017, 6, 12, 5, 25) is the beginning of the minute",
   () => {
-    let dt = DateTime.local(~year=2017, ~month=6, ~day=12, ~hour=5, ~minute=25, ());
+    let dt =
+      DateTime.local(~year=2017, ~month=6, ~day=12, ~hour=5, ~minute=25, ());
     expect(getDateObject(dt))
     |> toEqual({
          "year": 2017,
@@ -113,7 +115,16 @@ test(
 test(
   "DateTime.local(2017, 6, 12, 5, 25, 16) is the beginning of the second",
   () => {
-    let dt = DateTime.local(~year=2017, ~month=6, ~day=12, ~hour=5, ~minute=25, ~second=16, ());
+    let dt =
+      DateTime.local(
+        ~year=2017,
+        ~month=6,
+        ~day=12,
+        ~hour=5,
+        ~minute=25,
+        ~second=16,
+        ()
+      );
     expect(getDateObject(dt))
     |> toEqual({
          "year": 2017,
@@ -124,6 +135,42 @@ test(
          "second": 16,
          "millisecond": 0
        })
+  }
+);
+
+test(
+  "DateTime#fromMillis creates DateTime object from epoch float",
+  () => {
+    let dt = DateTime.fromMillis(1497237916255.0);
+    expect(getDateObject(dt))
+    |> toEqual({
+         "year": 2017,
+         "month": 6,
+         "day": 12,
+         "hour": 5,
+         "minute": 25,
+         "second": 16,
+         "millisecond": 255
+       })
+  }
+);
+
+test(
+  "DateTime.valueOf(2017, 6, 12, 5, 25, 16, 255) returns correct epoch float",
+  () => {
+    let dt =
+      DateTime.local(
+        ~year=2017,
+        ~month=6,
+        ~day=12,
+        ~hour=5,
+        ~minute=25,
+        ~second=16,
+        ~millisecond=255,
+        ()
+      )
+      |> DateTime.valueOf();
+    expect(dt) |> toEqual(1497237916255.0)
   }
 );
 
