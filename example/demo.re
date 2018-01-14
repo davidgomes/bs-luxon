@@ -1,5 +1,3 @@
-open Luxon;
-
 Js.log(DateTime.local(~year=2017, ~month=5, ~day=15, ~hour=8, ~minute=30, ()));
 
 let dateObj: DateTime.objectDate = {

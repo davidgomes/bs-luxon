@@ -2,8 +2,6 @@ open Jest;
 
 open ExpectJs;
 
-open Luxon;
-
 test("DateTime#minus({ years: 1 }) subtracts a year", () => {
   let dt =
     DateTime.(

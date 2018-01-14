@@ -1,7 +1,7 @@
 {
     "name": "bs-luxon",
     "description": "Bucklescript bindings for Luxon, written in Reason.",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "scripts": {
         "build": "bsb -make-world",
         "start": "bsb -make-world -w",

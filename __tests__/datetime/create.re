@@ -2,9 +2,7 @@ open Jest;
 
 open ExpectJs;
 
-open Luxon;
-
-let getDateObject = (dt: DateTime.t) => {
+let getDateObject = (dt: DateTime.dt) => {
   "year": dt##year,
   "month": dt##month,
   "day": dt##day,
@@ -125,7 +123,7 @@ test("DateTime#fromMillis creates DateTime object from epoch float", () => {
        "year": 2017,
        "month": 6,
        "day": 12,
-       "hour": 5,
+       "hour": 4,
        "minute": 25,
        "second": 16,
        "millisecond": 255
@@ -140,7 +138,7 @@ test(
       ~year=2017,
       ~month=6,
       ~day=12,
-      ~hour=5,
+      ~hour=4,
       ~minute=25,
       ~second=16,
       ~millisecond=255,
