@@ -27,3 +27,36 @@ Js.log(
     |> toISO()
   )
 );
+
+Js.log(
+  DateTime.(
+    local()
+    |> setZone("America/New_York")
+    |> plus(`DurationObj(makeDurationObj(~weeks=1, ())))
+    |> endOf(`day)
+    |> toISO()
+  )
+);
+
+Js.log(
+  DateTime.(
+    local()
+    |> setZone("America/New_York")
+    |> plus(`DurationObj(makeDurationObj(~days=1, ())))
+    |> toISO()
+  )
+);
+
+Js.log(
+  DateTime.(
+    local()
+    |> setZone("America/New_York")
+    |> minus(`DurationObj(makeDurationObj(~weeks=1, ())))
+    |> startOf(`day)
+    |> toISO()
+  )
+);
+
+Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.toISODate());
+
+Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.valueOf());
