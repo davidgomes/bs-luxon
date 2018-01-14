@@ -175,6 +175,9 @@ test(
   }
 );
 
+/*
+ * .toFormat()
+ */
 test(
   "DateTime.(2017, 6, 12, 5, 25, 16, 255).toFormat('MM-dd-yyyy') returns correctly formatted string",
   () => {
