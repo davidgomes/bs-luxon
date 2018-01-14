@@ -33,6 +33,8 @@ external local :
 
 [@bs.send.pipe : dt] external toISODate : unit => string = "";
 
+[@bs.send.pipe : dt] external toFormat : string => string = "";
+
 [@bs.send.pipe : dt] external toISO : unit => string = "";
 
 [@bs.send.pipe : dt] external toJSDate : unit => Js_date.t = "";
