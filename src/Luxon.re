@@ -69,11 +69,9 @@ module DateTime = {
     "millisecond": int
   };
   [@bs.module "luxon"] [@bs.scope "DateTime"]
-  external fromObject : objectDate => t =
-    "";
+  external fromObject : objectDate => t = "";
   [@bs.module "luxon"] [@bs.scope "DateTime"]
-  external fromMillis : float => t =
-    "";
+  external fromMillis : float => t = "";
   [@bs.send.pipe : t]
   external endOf :
     (
@@ -110,6 +108,6 @@ module DateTime = {
     "";
 
   /**** Static Members ****/
-  [@bs.module "luxon"] [@bs.scope "DateTime"] external dateTimeFull : string =
-    "DATETIME_FULL";
+  [@bs.module "luxon"] [@bs.scope "DateTime"]
+  external dateTimeFull : string = "DATETIME_FULL";
 };
