@@ -174,3 +174,25 @@ test(
        });
   }
 );
+
+/*
+ * .toFormat()
+ */
+test(
+  "DateTime.(2017, 6, 12, 5, 25, 16, 255).toFormat('MM-dd-yyyy') returns correctly formatted string",
+  () => {
+    let dt =
+      DateTime.local(
+        ~year=2017,
+        ~month=6,
+        ~day=12,
+        ~hour=4,
+        ~minute=25,
+        ~second=16,
+        ~millisecond=255,
+        ()
+      )
+      |> DateTime.toFormat("MM-dd-yyyy");
+    expect(dt) |> toEqual("06-12-2017");
+  }
+);
