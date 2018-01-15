@@ -23,7 +23,8 @@ Js.log(
     |> minus(`Duration(Duration.from(~weeks=1, ())))
     |> endOf(`day)
     |> toISO()
-));
+  )
+);
 
 Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.toISODate());
 

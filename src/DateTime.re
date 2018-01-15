@@ -47,17 +47,23 @@ type arithmeticArgs = [
   | `Duration(Duration.d)
 ];
 
-[@bs.send.pipe : dt] external minus : ([@bs.unwrap] [
-  | `DurationObj(Duration.durationObj)
-  | `Int(int)
-  | `Duration(Duration.d)
-]) => dt = "";
+[@bs.send.pipe : dt]
+external minus :
+  (
+  [@bs.unwrap]
+  [ | `DurationObj(Duration.durationObj) | `Int(int) | `Duration(Duration.d)]
+  ) =>
+  dt =
+  "";
 
-[@bs.send.pipe : dt] external plus : ([@bs.unwrap] [
-  | `DurationObj(Duration.durationObj)
-  | `Int(int)
-  | `Duration(Duration.d)
-]) => dt = "";
+[@bs.send.pipe : dt]
+external plus :
+  (
+  [@bs.unwrap]
+  [ | `DurationObj(Duration.durationObj) | `Int(int) | `Duration(Duration.d)]
+  ) =>
+  dt =
+  "";
 
 /* In the original API, these are all optional. But not in bs-luxon. In fact, in bs-luxon you should never use `fromObject` and always use `local` instead. */
 type objectDate = {

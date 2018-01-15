@@ -5,8 +5,7 @@ open ExpectJs;
 test("DateTime#minus({ years: 1 }) subtracts a year", () => {
   let dt =
     DateTime.(
-      local(~year=2017, ())
-      |> minus(`Duration(Duration.from(~years=1, ())))
+      local(~year=2017, ()) |> minus(`Duration(Duration.from(~years=1, ())))
     );
   expect(dt##year) |> toEqual(2016);
 });
