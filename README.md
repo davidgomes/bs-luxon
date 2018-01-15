@@ -15,10 +15,10 @@ DateTime.local().setZone('America/New_York').minus({ weeks: 1 }).endOf('day').to
 DateTime.(
   local()
   |> setZone("America/New_York")
-  |> minus(`DurationObj(makeDurationArgs(~weeks=1, ())))
+  |> minus(`Duration(Duration.from(~weeks=1, ())))
   |> endOf(`day)
   |> toISO()
-)
+);
 ```
 
 Look in the `example/` directory for an example of how to use the bindings. The tests contain a lot more examples.

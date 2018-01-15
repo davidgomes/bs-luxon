@@ -6,7 +6,7 @@ test("DateTime#minus({ years: 1 }) subtracts a year", () => {
   let dt =
     DateTime.(
       local(~year=2017, ())
-      |> minus(`DurationObj(makeDurationObj(~years=1, ())))
+      |> minus(`Duration(Duration.from(~years=1, ())))
     );
   expect(dt##year) |> toEqual(2016);
 });
@@ -15,7 +15,7 @@ test("DateTime#plus({ years: 1 }) adds a year", () => {
   let dt =
     DateTime.(
       local(~year=2017, ())
-      |> plus(`DurationObj(makeDurationObj(~years=1, ())))
+      |> plus(`DurationObj(Duration.makeDurationObj(~years=1, ())))
     );
   expect(dt##year) |> toEqual(2018);
 });
