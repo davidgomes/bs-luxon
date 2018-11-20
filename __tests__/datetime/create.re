@@ -117,13 +117,13 @@ test(
 });
 
 test("DateTime#fromMillis creates DateTime object from epoch float", () => {
-  let dt = DateTime.fromMillis(1497237916255.0);
+  let dt = DateTime.fromMillis(1497237916255.0) |> DateTime.setZone("UTC");
   expect(getDateObject(dt))
   |> toEqual({
        "year": 2017,
        "month": 6,
        "day": 12,
-       "hour": 4,
+       "hour": 3,
        "minute": 25,
        "second": 16,
        "millisecond": 255
@@ -134,11 +134,11 @@ test(
   "DateTime.valueOf(2017, 6, 12, 5, 25, 16, 255) returns correct epoch float",
   () => {
   let dt =
-    DateTime.local(
+    DateTime.utc(
       ~year=2017,
       ~month=6,
       ~day=12,
-      ~hour=4,
+      ~hour=3,
       ~minute=25,
       ~second=16,
       ~millisecond=255,
