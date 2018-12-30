@@ -27,6 +27,20 @@ external local :
   dt =
   "";
 
+[@bs.module "luxon"] [@bs.scope "DateTime"]
+external utc :
+  (
+    ~year: int=?,
+    ~month: int=?,
+    ~day: int=?,
+    ~hour: int=?,
+    ~minute: int=?,
+    ~second: int=?,
+    ~millisecond: int=?,
+    unit
+  ) =>
+  dt =
+  "";
 
 /*** Methods ****/
 [@bs.send.pipe : dt] external setZone : string => dt = "";
