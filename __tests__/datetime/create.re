@@ -130,6 +130,20 @@ test("DateTime#fromMillis creates DateTime object from epoch float", () => {
      });
 });
 
+test("DateTime#fromISO creates DateTime object from ISO", () => {
+  let dt = DateTime.fromISO("2018-10-19T16:39:59Z") |> DateTime.setZone("UTC");
+  expect(getDateObject(dt))
+  |> toEqual({
+       "year": 2018,
+       "month": 10,
+       "day": 19,
+       "hour": 16,
+       "minute": 39,
+       "second": 59,
+       "millisecond": 0
+     });
+});
+
 test(
   "DateTime.valueOf(2017, 6, 12, 5, 25, 16, 255) returns correct epoch float",
   () => {
