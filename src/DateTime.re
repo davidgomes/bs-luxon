@@ -97,6 +97,9 @@ external fromObject : objectDate => dt = "";
 [@bs.module "luxon"] [@bs.scope "DateTime"]
 external fromMillis : float => dt = "";
 
+[@bs.module "luxon"] [@bs.scope "DateTime"] 
+external fromISO : string => dt = "";
+
 [@bs.send.pipe : dt]
 external endOf :
   (
