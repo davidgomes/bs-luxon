@@ -30,6 +30,8 @@ Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.toISODate());
 
 Js.log(DateTime.fromMillis(1515778677919.0) |> DateTime.valueOf());
 
+Js.log(DateTime.fromISO("2018-10-19T16:39:59Z") |> DateTime.toISO());
+
 Js.log(DateTime.local() |> DateTime.toFormat("MM-dd-yyyy"));
 
 Js.log(DateTime.local() |> DateTime.toFormat("dd-MM-yyyy"));
