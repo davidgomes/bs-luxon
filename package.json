@@ -2,13 +2,6 @@
     "name": "bs-luxon",
     "description": "Bucklescript bindings for Luxon, written in Reason.",
     "version": "0.3.0",
-    "scripts": {
-        "build": "bsb -make-world",
-        "start": "bsb -make-world -w",
-        "example": "node example/demo.bs.js",
-        "test": "jest",
-        "clean": "bsb -clean-world"
-    },
     "keywords": [
         "BuckleScript",
         "reason",
@@ -21,16 +14,23 @@
     "license": "MIT",
     "bugs": "https://github.com/davidgomes/bs-luxon/issues",
     "homepage": "https://github.com/davidgomes/bs-luxon",
-    "peerDependencies": {
-        "luxon": "^0.2.11"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/davidgomes/bs-luxon"
     },
+    "scripts": {
+        "build": "bsb -make-world",
+        "start": "bsb -make-world -w",
+        "example": "node example/demo.bs.js",
+        "test": "jest",
+        "clean": "bsb -clean-world"
+    },
     "devDependencies": {
         "@glennsl/bs-jest": "^0.4.5",
         "bs-platform": "^4.0.7",
-        "luxon": "^0.2.11"
+        "luxon": "^1.10.0"
+    },
+    "peerDependencies": {
+        "luxon": "^1.10.0"
     }
 }
