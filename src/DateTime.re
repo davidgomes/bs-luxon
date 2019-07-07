@@ -51,6 +51,8 @@ external utc :
 
 [@bs.send.pipe : dt] external toISO : unit => string = "";
 
+[@bs.send.pipe : dt] external toRelative : unit => string = "";
+
 [@bs.send.pipe : dt] external toJSDate : unit => Js_date.t = "";
 
 [@bs.send.pipe : dt] external valueOf : unit => float = "";
