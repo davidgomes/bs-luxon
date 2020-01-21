@@ -7,7 +7,8 @@ type dt = {
   "hour": int,
   "minute": int,
   "second": int,
-  "millisecond": int
+  "millisecond": int,
+  "isValid": bool
 };
 
 
@@ -102,7 +103,7 @@ external fromMillis : float => dt = "";
 [@bs.module "luxon"] [@bs.scope "DateTime"]
 external fromSeconds : float => dt = "";
 
-[@bs.module "luxon"] [@bs.scope "DateTime"] 
+[@bs.module "luxon"] [@bs.scope "DateTime"]
 external fromISO : string => dt = "";
 
 [@bs.send.pipe : dt]
