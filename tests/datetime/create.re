@@ -10,7 +10,7 @@ let getDateObject = (dt: DateTime.dt) => {
   "minute": dt##minute,
   "second": dt##second,
   "millisecond": dt##millisecond,
-  "isValid": dt##isValid
+  "isValid": dt##isValid,
 };
 
 /*
@@ -18,8 +18,8 @@ let getDateObject = (dt: DateTime.dt) => {
  */
 test("to work", () => {
   let now = DateTime.local();
-  expect(Js_date.getDate(now |> DateTime.toJSDate()))
-  |> toBe(Js_date.getDate(Js_date.make()));
+  expect(Js.Date.getDate(now |> DateTime.toJSDate()))
+  |> toBe(Js.Date.getDate(Js.Date.make()));
 });
 
 test("DateTime.local(2017) is the beginning of the year", () => {
@@ -33,7 +33,7 @@ test("DateTime.local(2017) is the beginning of the year", () => {
        "minute": 0,
        "second": 0,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -48,7 +48,7 @@ test("DateTime.local(2017, 6) is the beginning of the month", () => {
        "minute": 0,
        "second": 0,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -63,7 +63,7 @@ test("DateTime.local(2017, 6, 12) is the beginning of 6/12", () => {
        "minute": 0,
        "second": 0,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -78,7 +78,7 @@ test("DateTime.local(2017, 6, 12, 5) is the beginning of the hour", () => {
        "minute": 0,
        "second": 0,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -94,7 +94,7 @@ test("DateTime.local(2017, 6, 12, 5, 25) is the beginning of the minute", () => 
        "minute": 25,
        "second": 0,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -108,7 +108,7 @@ test(
       ~hour=5,
       ~minute=25,
       ~second=16,
-      ()
+      (),
     );
   expect(getDateObject(dt))
   |> toEqual({
@@ -119,7 +119,7 @@ test(
        "minute": 25,
        "second": 16,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -134,12 +134,13 @@ test("DateTime#fromMillis creates DateTime object from epoch float", () => {
        "minute": 25,
        "second": 16,
        "millisecond": 255,
-       "isValid": true
+       "isValid": true,
      });
 });
 
 test("DateTime#fromISO creates DateTime object from ISO", () => {
-  let dt = DateTime.fromISO("2018-10-19T16:39:59Z") |> DateTime.setZone("UTC");
+  let dt =
+    DateTime.fromISO("2018-10-19T16:39:59Z") |> DateTime.setZone("UTC");
   expect(getDateObject(dt))
   |> toEqual({
        "year": 2018,
@@ -149,7 +150,7 @@ test("DateTime#fromISO creates DateTime object from ISO", () => {
        "minute": 39,
        "second": 59,
        "millisecond": 0,
-       "isValid": true
+       "isValid": true,
      });
 });
 
@@ -165,7 +166,7 @@ test(
       ~minute=25,
       ~second=16,
       ~millisecond=255,
-      ()
+      (),
     )
     |> DateTime.valueOf();
   expect(dt) |> toEqual(1497237916255.0);
@@ -183,7 +184,7 @@ test(
         ~minute=25,
         ~second=16,
         ~millisecond=255,
-        ()
+        (),
       );
     expect(getDateObject(dt))
     |> toEqual({
@@ -194,27 +195,27 @@ test(
          "minute": 25,
          "second": 16,
          "millisecond": 255,
-         "isValid": true
+         "isValid": true,
        });
-  }
+  },
 );
 
 test("DateTime.local(2019, 7, 32) is an invalid date", () => {
-  let dt = DateTime.local(
-    ~year=2019,
-    ~month=7,
-    ~day=32,
-    ~hour=5,
-    ~minute=25,
-    ~second=16,
-    ~millisecond=255,
-    ()
-  );
+  let dt =
+    DateTime.local(
+      ~year=2019,
+      ~month=7,
+      ~day=32,
+      ~hour=5,
+      ~minute=25,
+      ~second=16,
+      ~millisecond=255,
+      (),
+    );
 
   let dateObj = getDateObject(dt);
 
-  expect(dateObj##isValid)
-    |> toEqual(false)
+  expect(dateObj##isValid) |> toEqual(false);
 });
 
 /*
@@ -232,9 +233,9 @@ test(
         ~minute=25,
         ~second=16,
         ~millisecond=255,
-        ()
+        (),
       )
       |> DateTime.toFormat("MM-dd-yyyy");
     expect(dt) |> toEqual("06-12-2017");
-  }
+  },
 );
