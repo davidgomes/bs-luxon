@@ -15,6 +15,8 @@
 
 (bug_reports https://github.com/davidgomes/bs-luxon/issues)
 
+(name bs-luxon)
+
 (package
  (name bs-luxon)
  (synopsis "Luxon Bindings for ReasonML and OCaml")
