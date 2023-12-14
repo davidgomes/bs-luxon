@@ -9,7 +9,7 @@ type d = {
   "seconds": int,
   "weeks": int,
   "years": int,
-  "locale": string
+  "locale": string,
 };
 
 type durationObj = {
@@ -22,14 +22,14 @@ type durationObj = {
   "seconds": int,
   "weeks": int,
   "years": int,
-  "locale": string
+  "locale": string,
 };
 
-[@bs.module "luxon"] [@bs.scope "Duration"]
-external fromObject : durationObj => d = "";
+[@mel.module "luxon"] [@mel.scope "Duration"]
+external fromObject: durationObj => d;
 
-[@bs.obj]
-external makeDurationObj :
+[@mel.obj]
+external makeDurationObj:
   (
     ~years: int=?,
     ~months: int=?,
@@ -41,8 +41,7 @@ external makeDurationObj :
     ~milliseconds: int=?,
     unit
   ) =>
-  durationObj =
-  "";
+  durationObj;
 
 let from =
     (
@@ -54,7 +53,7 @@ let from =
       ~seconds=?,
       ~weeks=?,
       ~years=?,
-      ()
+      (),
     ) =>
   fromObject(
     makeDurationObj(
@@ -66,6 +65,6 @@ let from =
       ~seconds?,
       ~weeks?,
       ~years?,
-      ()
-    )
+      (),
+    ),
   );

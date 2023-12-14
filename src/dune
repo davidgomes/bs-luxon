@@ -1,0 +1,6 @@
+(library
+ (name bsLuxon)
+ (public_name bs-luxon)
+ (modes melange)
+ (preprocess
+  (pps melange.ppx)))

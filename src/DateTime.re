@@ -8,13 +8,12 @@ type dt = {
   "minute": int,
   "second": int,
   "millisecond": int,
-  "isValid": bool
+  "isValid": bool,
 };
 
-
 /**** Static Methods ****/
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external local :
+[@mel.module "luxon"] [@mel.scope "DateTime"]
+external local:
   (
     ~year: int=?,
     ~month: int=?,
@@ -25,11 +24,10 @@ external local :
     ~millisecond: int=?,
     unit
   ) =>
-  dt =
-  "";
+  dt;
 
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external utc :
+[@mel.module "luxon"] [@mel.scope "DateTime"]
+external utc:
   (
     ~year: int=?,
     ~month: int=?,
@@ -40,23 +38,22 @@ external utc :
     ~millisecond: int=?,
     unit
   ) =>
-  dt =
-  "";
+  dt;
 
 /*** Methods ****/
-[@bs.send.pipe : dt] external setZone : string => dt = "";
+[@mel.send.pipe: dt] external setZone: string => dt;
 
-[@bs.send.pipe : dt] external toISODate : unit => string = "";
+[@mel.send.pipe: dt] external toISODate: unit => string;
 
-[@bs.send.pipe : dt] external toFormat : string => string = "";
+[@mel.send.pipe: dt] external toFormat: string => string;
 
-[@bs.send.pipe : dt] external toISO : unit => string = "";
+[@mel.send.pipe: dt] external toISO: unit => string;
 
-[@bs.send.pipe : dt] external toRelative : unit => string = "";
+[@mel.send.pipe: dt] external toRelative: unit => string;
 
-[@bs.send.pipe : dt] external toJSDate : unit => Js_date.t = "";
+[@mel.send.pipe: dt] external toJSDate: unit => Js.Date.t;
 
-[@bs.send.pipe : dt] external valueOf : unit => float = "";
+[@mel.send.pipe: dt] external valueOf: unit => float;
 
 type arithmeticArgs = [
   | `DurationObj(Duration.durationObj)
@@ -64,23 +61,29 @@ type arithmeticArgs = [
   | `Duration(Duration.d)
 ];
 
-[@bs.send.pipe : dt]
-external minus :
+[@mel.send.pipe: dt]
+external minus:
   (
-  [@bs.unwrap]
-  [ | `DurationObj(Duration.durationObj) | `Int(int) | `Duration(Duration.d)]
+  [@mel.unwrap]
+  [
+    | `DurationObj(Duration.durationObj)
+    | `Int(int)
+    | `Duration(Duration.d)
+  ]
   ) =>
-  dt =
-  "";
+  dt;
 
-[@bs.send.pipe : dt]
-external plus :
+[@mel.send.pipe: dt]
+external plus:
   (
-  [@bs.unwrap]
-  [ | `DurationObj(Duration.durationObj) | `Int(int) | `Duration(Duration.d)]
+  [@mel.unwrap]
+  [
+    | `DurationObj(Duration.durationObj)
+    | `Int(int)
+    | `Duration(Duration.d)
+  ]
   ) =>
-  dt =
-  "";
+  dt;
 
 /* In the original API, these are all optional. But not in bs-luxon. In fact, in bs-luxon you should never use `fromObject` and always use `local` instead. */
 type objectDate = {
@@ -91,40 +94,33 @@ type objectDate = {
   "hour": int,
   "minute": int,
   "second": int,
-  "millisecond": int
+  "millisecond": int,
 };
 
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external fromObject : objectDate => dt = "";
+[@mel.module "luxon"] [@mel.scope "DateTime"]
+external fromObject: objectDate => dt;
 
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external fromMillis : float => dt = "";
+[@mel.module "luxon"] [@mel.scope "DateTime"] external fromMillis: float => dt;
 
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external fromSeconds : float => dt = "";
+[@mel.module "luxon"] [@mel.scope "DateTime"]
+external fromSeconds: float => dt;
 
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external fromISO : string => dt = "";
+[@mel.module "luxon"] [@mel.scope "DateTime"] external fromISO: string => dt;
 
-[@bs.send.pipe : dt]
-external endOf :
+[@mel.send.pipe: dt]
+external endOf:
   (
-  [@bs.string]
   [ | `year | `month | `week | `day | `hour | `minute | `second | `millisecond]
   ) =>
-  dt =
-  "";
+  dt;
 
-[@bs.send.pipe : dt]
-external startOf :
+[@mel.send.pipe: dt]
+external startOf:
   (
-  [@bs.string]
   [ | `year | `month | `week | `day | `hour | `minute | `second | `millisecond]
   ) =>
-  dt =
-  "";
-
+  dt;
 
 /**** Static Members ****/
-[@bs.module "luxon"] [@bs.scope "DateTime"]
-external dateTimeFull : string = "DATETIME_FULL";
+[@mel.module "luxon"] [@mel.scope "DateTime"]
+external dateTimeFull: string = "DATETIME_FULL";

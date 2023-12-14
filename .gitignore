@@ -6,3 +6,8 @@ npm-debug.log
 /node_modules/
 tasks.json
 *.bs.js
+
+_opam
+_build
+.vscode
+output
